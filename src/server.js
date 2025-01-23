@@ -3,7 +3,7 @@ import cors from "cors";
 
 import dotenv from "dotenv";
 
-import questionsData from "./routes/question.route.js";
+import questionsData from "./routes/main.route.js";
 
 dotenv.config();
 

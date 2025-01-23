@@ -50,3 +50,22 @@ export const evaluateAnswer = async (req, res) => {
     res.status(500).json({ message: "Something went wrong" });
   }
 };
+
+export const sendEvaluationData = async (req, res) => {
+  try {
+    const { userId } = req.params;
+    const data = await prisma.response.findMany({
+      where: {
+        userId,
+      },
+    });
+    console.log(data);
+    res.status(200).json({
+      message: "Data fetched successfully",
+      data,
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ message: "Something went wrong" });
+  }
+};

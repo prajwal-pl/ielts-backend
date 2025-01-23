@@ -12,3 +12,12 @@ datasource db {
   provider = "mongodb"
   url      = env("DATABASE_URL")
 }
+
+model Response {
+  id         String @id @default(auto()) @map("_id") @db.ObjectId
+  question   String
+  transcript String
+  AIResponse String
+  score      Int
+  userId     String
+}
